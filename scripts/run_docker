@@ -37,4 +37,6 @@ fi
 
 RAND_NAME=$(env LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 16 | head -n 1)
 $CONTAINER_RUNTIME run --rm -ti --name "aries-cloudagent-runner_${RAND_NAME}" \
+    -p 8021:8021 \
+    -p 8000:8000 \
     $ARGS aries-cloudagent-run "$@"
